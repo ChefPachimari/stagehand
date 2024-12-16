@@ -18,6 +18,7 @@ class DifferenceView(TestCase):
         Numbers.objects.create(number=10, request_ct=0)
 
     def test_differences(self):
+        # test the difference is accurate
         response = self.client.get(reverse('difference'), {'number': 10})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['value'], 2640)
@@ -26,6 +27,7 @@ class DifferenceView(TestCase):
         self.assertEqual(response.data['has_triplet'], [])
 
     def test_occurence_incrementing(self):
+        # test that the occurences incrementing properly when called multiple times
         response = self.client.get(reverse('difference'), {'number': 10})
         response = self.client.get(reverse('difference'), {'number': 10})
         self.assertEqual(response.data['occurences'], 1)
@@ -37,12 +39,14 @@ class DifferenceView(TestCase):
         self.assertIsNotNone(response.data['last_datetime'])
 
     def test_triplet(self):
+        # test the one off 60 and then again for 61 to see has_triplet is accurate
         response = self.client.get(reverse('difference'), {'number': 60})
         self.assertEqual(response.data['has_triplet'], [3,4,5])
         response = self.client.get(reverse('difference'), {'number': 61})
         self.assertEqual(response.data['has_triplet'], [])
 
     def test_json_structure(self):
+        # check JSON structure to ensure all keys are present
         response = self.client.get(reverse('difference'), {'number': 10})
         self.assertIn('datetime', response.data)
         self.assertIn('value', response.data)

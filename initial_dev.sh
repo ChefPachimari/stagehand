@@ -10,6 +10,7 @@
 # fi
 
 # # Install Redis
+# holding off on redis as out of scope to think about putting a redis cache in front of the database just yet to handle load
 # sudo apt-get update
 # sudo apt-get install -y redis-server
 

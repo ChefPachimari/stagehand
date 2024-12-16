@@ -20,7 +20,12 @@ return JSON
     "last_datetime": timestamp of previous call
 }
 ```
-
+# Initial Installation
+1. Clone the project via Git.
+2. Read through or run `initial_dev.sh`
+    a. this will build the venv, install requirements.txt packages, migrate, generate and load fixtures.
+3. run `source venv/bin/activate`
+4. run `python manage.py`
 
 # Stack
 please ensure your system is capable of running things.
@@ -28,8 +33,6 @@ please ensure your system is capable of running things.
 * Django 4.2+
 * Sqlite 3+
 
-# Installation
-
 # TODO
-* add functionality for a Pythagorean triplet where C is no greater than 1000 of the triplet.
-* add unit testing
+* [DONE] add functionality for a Pythagorean triplet where C is no greater than 1000 of the triplet.
+* [DONE] add unit testing

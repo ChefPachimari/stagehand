@@ -13,6 +13,7 @@ from rest_framework import status
 # project imports
 from .models import Numbers
 
+# using a function based view decorator for simplicity rather than a whole CRUD modelviewset
 @api_view(['GET'])
 def difference(request):
     # Get input and return errors early
@@ -29,7 +30,7 @@ def difference(request):
     sum_of_squares = numbers.aggregate(sum_of_squares=Sum(F('number') ** 2))['sum_of_squares']
     square_of_sum = numbers.aggregate(square_of_sum=Sum('number'))['square_of_sum'] ** 2
 
-    # there's only possible triplet and that is 3,4,5 which abc = 60
+    # there's only 1 possible triplet and that is 3,4,5 which abc = 60, saves on computation time and complexity
     # so we look for 60 otherwise we return an empty list
     # always returning a list as maintain consistent data types in json response
     has_triplet = []
@@ -47,7 +48,7 @@ def difference(request):
     
     # is this worth putting in a post save signal? -thn 15:15
     # no because post signal would trigger with admin saves, not just on requests -thn 15:18
-
+    # do a save to store request count and last request time
     update_number = numbers.last()
     update_number.request_last_timestamp = datetime.now()
     update_number.request_ct += 1
