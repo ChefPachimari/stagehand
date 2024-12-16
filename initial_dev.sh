@@ -21,7 +21,7 @@ source venv/bin/activate
 # Initial Install the dependencies from requirements.txt
 pip install -r requirements.txt
 python3 ./manage.py migrate
-python3 ./manage generate_fixtures
+python3 ./manage.py generate_fixtures
 python ./manage.py loaddata toolbox/fixtures/numbers_fixture.json
 
 echo "venv set up and ready to use, run 'source venv/bin/activate'"
