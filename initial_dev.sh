@@ -3,15 +3,15 @@
 # Create a virtual environment named 'venv'
 
 # Prompt the user to confirm Redis installation
-read -p "Redis will be installed on the system. Do you want to continue? (y/n): " confirm
-if [[ $confirm != [yY] ]]; then
-    echo "Redis installation aborted."
-    exit 1
-fi
+# read -p "Redis will be installed on the system. Do you want to continue? (y/n): " confirm
+# if [[ $confirm != [yY] ]]; then
+#     echo "Redis installation aborted."
+#     exit 1
+# fi
 
-# Install Redis
-sudo apt-get update
-sudo apt-get install -y redis-server
+# # Install Redis
+# sudo apt-get update
+# sudo apt-get install -y redis-server
 
 python3 -m venv venv
 

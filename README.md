@@ -27,7 +27,6 @@ please ensure your system is capable of running things.
 * Python 3.10+
 * Django 4.2+
 * Sqlite 3+
-* Redis 7+
 
 # Installation
 
