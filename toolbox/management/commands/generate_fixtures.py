@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         # Generate new data
         data = []
-        for i in range(1, 1001):
+        for i in range(1, 101):
             data.append({
                 "model": "toolbox.numbers",
                 "pk": i,
