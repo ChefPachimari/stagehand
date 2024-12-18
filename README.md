@@ -1,5 +1,5 @@
 # Stagehand
-This project will contain a django service containing functionalities for various computations and utilities
+This practice problem will contain a django service containing functionalities for various computations and utilities
 
 # Functionalities
 Contains endpoints that can yield the diference between the **sum of squares** of the first N natural numbers against the **square of the sum** of the first N natural numbers.
